@@ -5,10 +5,11 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Products](
-	[Productd] [int] NOT NULL,
+	[Productd] [int] IDENTITY(1,1) NOT NULL,
 	[Price] [decimal](10, 2) NOT NULL,
 	[Name] [nvarchar](250) NOT NULL,
 	[Amount] [decimal](10, 2) NOT NULL,
+	[Date] [datetime] NOT NULL,
  CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED 
 (
 	[Productd] ASC

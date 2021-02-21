@@ -22,7 +22,7 @@ namespace Ira.Configuration
 
             services.AddTransient<IParser, SberMarketParser>();
             services.AddTransient<IProductsDB, ProductsDB>();
-            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IProductBL, ProductBL>();
 
             return services;
         }

@@ -13,9 +13,9 @@ namespace Ira.Controllers
     public class TestController : ControllerBase
     {
         private readonly IParser _sberMarketParser;
-        private readonly IProductService _productService;
+        private readonly IProductBL _productService;
 
-        public TestController(IParser sberMarketParser, IProductService productService)
+        public TestController(IParser sberMarketParser, IProductBL productService)
         {
             _sberMarketParser = sberMarketParser;
             _productService = productService;

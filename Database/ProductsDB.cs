@@ -25,5 +25,12 @@ namespace Database
 
             await connection.ExecuteAsync("INSERT INTO [dbo].[Products] VALUES (@Price, @Name, @Amount, @Date)", products);
         }
+
+        public async Task<IEnumerable<ProductDB>> GetProducts(string productName)
+        {
+            using IDbConnection connection = new SqlConnection(ConnectionStrings.Value.Dev);
+
+            return await connection.QueryAsync<ProductDB>("[dbo].[GetProduct]", new { productName }, commandType: CommandType.StoredProcedure);
+        }
     }
 }

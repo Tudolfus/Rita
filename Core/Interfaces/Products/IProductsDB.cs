@@ -7,5 +7,7 @@ namespace Core.Interfaces.Products
     public interface IProductsDB
     {
         Task SaveProducts(List<Product> products);
+
+        Task<IEnumerable<ProductDB>> GetProducts(string productName);
     }
 }
