@@ -1,9 +1,11 @@
+using FluentMigrator.Runner;
 using Ira.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Reflection;
 
 namespace Ira
 {
@@ -23,6 +25,15 @@ namespace Ira
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services
+                .AddLogging(c => c.AddFluentMigratorConsole())
+                .AddFluentMigratorCore()
+                .ConfigureRunner(c => c
+                    .AddSqlServer2012()
+                    .WithGlobalConnectionString("Persist Security Info = False; Integrated Security = true; Initial Catalog = Rita; server = USER-PC\\SQLEXPRESS")
+                    .ScanIn(Assembly.LoadFrom("Database")).For.All());
+
             services.AddDI(Configuration);
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
