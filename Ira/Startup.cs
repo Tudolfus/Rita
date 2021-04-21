@@ -1,3 +1,4 @@
+using Database.Migrations.Scripts;
 using FluentMigrator.Runner;
 using Ira.Configuration;
 using Microsoft.AspNetCore.Builder;
@@ -32,7 +33,7 @@ namespace Ira
                 .ConfigureRunner(c => c
                     .AddSqlServer2012()
                     .WithGlobalConnectionString("Persist Security Info = False; Integrated Security = true; Initial Catalog = Rita; server = USER-PC\\SQLEXPRESS")
-                    .ScanIn(Assembly.LoadFrom("Database")).For.All());
+                    .ScanIn(typeof(Migration_2021_03_29_18_51).Assembly).For.All());
 
             services.AddDI(Configuration);
 
