@@ -12,7 +12,7 @@ namespace BL.Parsers
     {
         public IEnumerable<Product> Parsing()
         {
-            IWebDriver driver = new ChromeDriver(@"C:\Users\Professional\source\repos\Rita");
+            IWebDriver driver = new ChromeDriver(@"C:\projects\Rita");
 
             driver.Navigate().GoToUrl("https://sbermarket.ru/auchan/voda-soki-napitki/soki-niektary-morsy?sid=177");
 
