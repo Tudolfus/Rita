@@ -32,7 +32,7 @@ namespace Ira
                 .AddFluentMigratorCore()
                 .ConfigureRunner(c => c
                     .AddSqlServer2012()
-                    .WithGlobalConnectionString("Persist Security Info = False; Integrated Security = true; Initial Catalog = Rita; server = USER-PC\\SQLEXPRESS")
+                    .WithGlobalConnectionString("Persist Security Info = False; Integrated Security = true; Initial Catalog = Rita; server = USER-PC")
                     .ScanIn(typeof(Migration_2021_03_29_18_51).Assembly).For.All());
 
             services.AddDI(Configuration);
@@ -65,6 +65,8 @@ namespace Ira
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
             });
+
+            app.Migrate();
         }
     }
 }
