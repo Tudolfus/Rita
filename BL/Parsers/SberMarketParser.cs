@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 
 namespace BL.Parsers
@@ -12,7 +13,12 @@ namespace BL.Parsers
     {
         public IEnumerable<Product> Parsing()
         {
-            IWebDriver driver = new ChromeDriver(@"C:\projects\Rita");
+
+            string pathToDriver = AppDomain.CurrentDomain.BaseDirectory;
+
+            IWebDriver driver = new ChromeDriver(pathToDriver);
+
+            
 
             driver.Navigate().GoToUrl("https://sbermarket.ru/auchan/voda-soki-napitki/soki-niektary-morsy?sid=177");
 
