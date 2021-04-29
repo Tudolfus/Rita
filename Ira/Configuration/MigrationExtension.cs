@@ -1,10 +1,6 @@
 ﻿using FluentMigrator.Runner;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Ira.Configuration
 {
@@ -14,8 +10,11 @@ namespace Ira.Configuration
         {
             using var scope = app.ApplicationServices.CreateScope();
             var runner = scope.ServiceProvider.GetService<IMigrationRunner>();
-            runner.ListMigrations();
-            runner.MigrateUp(202103291851);
+            //runner.ListMigrations();
+            //runner.MigrateUp(202103291851);
+            runner.MigrateUp(202104292216);
+            runner.MigrateUp(202104292221);
+            runner.MigrateUp(202104292225);
             return app;
         }
     }

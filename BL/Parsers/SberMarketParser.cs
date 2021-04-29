@@ -13,14 +13,11 @@ namespace BL.Parsers
     {
         public IEnumerable<Product> Parsing()
         {
-
             string pathToDriver = AppDomain.CurrentDomain.BaseDirectory;
 
             IWebDriver driver = new ChromeDriver(pathToDriver);
 
-            
-
-            driver.Navigate().GoToUrl("https://sbermarket.ru/auchan/voda-soki-napitki/soki-niektary-morsy?sid=177");
+            driver.Navigate().GoToUrl("https://sbermarket.ru/auchan/c/voda-soki-napitki-new/soki-niektary-morsy?sid=177&source=category");
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10000);
 
