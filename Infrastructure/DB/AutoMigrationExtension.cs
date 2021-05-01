@@ -14,7 +14,7 @@ namespace Infrastructure.DB
                .ConfigureRunner(c => c
                    .AddSqlServer2012()
                    .WithGlobalConnectionString("Persist Security Info = False; Integrated Security = true; Initial Catalog = Rita; server = USER-PC")
-                   .ScanIn(typeof(Migration_2021_04_29_22_17).Assembly).For.All()); //проверить
+                   .ScanIn(typeof(Migration_2021_04_29_22_22).Assembly).For.All()); //проверить
 
             return services;
         }

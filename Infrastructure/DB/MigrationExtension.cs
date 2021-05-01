@@ -10,11 +10,12 @@ namespace Infrastructure.DB
         {
             using var scope = app.ApplicationServices.CreateScope();
             var runner = scope.ServiceProvider.GetService<IMigrationRunner>();
-            //runner.ListMigrations();
-            //runner.MigrateUp(202103291851);
-            runner.MigrateUp(202104292216);
-            runner.MigrateUp(202104292221);
-            runner.MigrateUp(202104292225);
+
+            runner.MigrateUp(202104292222);
+            runner.MigrateUp(202105012221);
+            runner.MigrateUp(202105012223);
+            runner.MigrateUp(202105020028);
+
             return app;
         }
     }

@@ -7,7 +7,7 @@ using Database;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Ira.Configuration
+namespace Infrastructure.DI
 {
     public static class DependencyInjectionExtension
     {

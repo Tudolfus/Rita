@@ -3,8 +3,8 @@ using FluentMigrator.SqlServer;
 
 namespace Infrastructure.DB.Migrations
 {
-    [Migration(202104292217)]
-    public class Migration_2021_04_29_22_17 : Migration
+    [Migration(202105012221)]
+    public class Migration_2021_05_01_22_21 : Migration
     {
         public override void Down()
         {
@@ -15,7 +15,8 @@ namespace Infrastructure.DB.Migrations
         {
             Create.Table("Products")
                 .WithColumn("Id").AsInt64().NotNullable().PrimaryKey().Identity(1, 1)
-                .WithColumn("Name").AsString(250).NotNullable();
+                .WithColumn("Name").AsString(250).NotNullable()
+                .WithColumn("StoreId").AsInt32().NotNullable().ForeignKey("Stores", "Id");
         }
     }
 }
