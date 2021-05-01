@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Ira.Configuration
+namespace Infrastructure.DB
 {
     public static class MigrationExtension
     {

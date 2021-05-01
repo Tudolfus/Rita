@@ -1,12 +1,13 @@
 ﻿using Dapper;
+using Microsoft.AspNetCore.Builder;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace Database.Migrations
+namespace Infrastructure.DB
 {
     public static class DatabaseMigration
     {
-        public static void EnsureDatabase(string connectionString, string name)
+        public static IApplicationBuilder EnsureDatabase(this IApplicationBuilder app, string connectionString, string name)
         {
             var parameters = new DynamicParameters();
             parameters.Add("name", name);
@@ -20,6 +21,8 @@ namespace Database.Migrations
             {
                 connection.Execute($"CREATE DATABASE {name}");
             }
+
+            return app;
         }
     }
 }

@@ -1,11 +1,10 @@
-using Database.Migrations.Scripts;
-using FluentMigrator.Runner;
 using Ira.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Infrastructure.DB;
 using System.Reflection;
 
 namespace Ira
@@ -27,13 +26,7 @@ namespace Ira
         {
             services.AddControllers();
 
-            services
-                .AddLogging(c => c.AddFluentMigratorConsole())
-                .AddFluentMigratorCore()
-                .ConfigureRunner(c => c
-                    .AddSqlServer2012()
-                    .WithGlobalConnectionString("Persist Security Info = False; Integrated Security = true; Initial Catalog = Rita; server = USER-PC")
-                    .ScanIn(typeof(Migration_2021_03_29_18_51).Assembly).For.All());
+            services.LaunchAutoMigration();
 
             services.AddDI(Configuration);
 
@@ -66,6 +59,7 @@ namespace Ira
                     pattern: "{controller}/{action=Index}/{id?}");
             });
 
+            app.EnsureDatabase("Data Source=localhost;Integrated Security=True;", "Rita");
             app.Migrate();
         }
     }

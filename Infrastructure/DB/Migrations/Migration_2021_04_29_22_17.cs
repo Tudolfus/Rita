@@ -1,7 +1,7 @@
 ﻿using FluentMigrator;
 using FluentMigrator.SqlServer;
 
-namespace Database.Migrations.Scripts
+namespace Infrastructure.DB.Migrations
 {
     [Migration(202104292217)]
     public class Migration_2021_04_29_22_17 : Migration
