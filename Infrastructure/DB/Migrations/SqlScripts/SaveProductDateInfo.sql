@@ -6,7 +6,7 @@
 AS
 BEGIN TRAN
 
-IF EXISTS (SELECT Name FROM dbo.Products AS prod WHERE prod.Name = @productName)
+IF NOT EXISTS (SELECT Name FROM dbo.Products AS prod WHERE prod.Name = @productName)
 BEGIN
 INSERT INTO dbo.Products (Name, StoreId) VALUES (@productName, @storeId)
 END
