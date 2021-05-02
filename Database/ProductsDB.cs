@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Core.Models.Products;
 using Microsoft.Extensions.Options;
 using Core.Models.Configuration;
+using System;
 
 namespace Database
 {
@@ -23,7 +24,14 @@ namespace Database
         {
             using IDbConnection connection = new SqlConnection(ConnectionStrings.Value.Dev);
 
-            await connection.ExecuteAsync("INSERT INTO [dbo].[Products] VALUES (@Price, @Name, @Amount, @Date)", products);
+            DateTime dateTime = DateTime.Now;
+
+            foreach (var i in products)
+            {
+                await connection.ExecuteAsync("dbo.SaveProductDateInfo",
+                    new { productName = i.Name, storeId = 1, date = dateTime, price = i.Price}, commandType: CommandType.StoredProcedure);
+            }
+            
         }
 
         public async Task<IEnumerable<ProductDB>> GetProducts(string productName)

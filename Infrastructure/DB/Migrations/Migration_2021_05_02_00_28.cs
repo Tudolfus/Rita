@@ -12,7 +12,7 @@ namespace Infrastructure.DB.Migrations
 
         public override void Up()
         {
-            Execute.EmbeddedScript("SaveProductDateInfo");
+            Execute.EmbeddedScript("SaveProductDateInfo.sql");
         }
     }
 }

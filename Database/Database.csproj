@@ -15,4 +15,11 @@
     <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="SaveProductDateInfo.sql">
+      <LastGenOutput>SaveProductDateInfo.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </None>
+  </ItemGroup>
+
 </Project>

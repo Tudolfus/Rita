@@ -5,6 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DB\Migrations\SqlScripts\SaveProductDateInfo.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="DB\Migrations\SqlScripts\SaveProductDateInfo.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.90" />
     <PackageReference Include="FluentMigrator" Version="3.2.15" />
     <PackageReference Include="FluentMigrator.Runner" Version="3.2.15" />
@@ -16,33 +26,6 @@
     <ProjectReference Include="..\BL\BL.csproj" />
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\Database\Database.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="DB\Migrations\StoredProcedures.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>StoredProcedures.resx</DependentUpon>
-    </Compile>
-    <Compile Update="DB\Migrations\SqlScripts\SaveProductDateInfo.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SaveProductDateInfo.sql</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="DB\Migrations\StoredProcedures.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>StoredProcedures.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="DB\Migrations\SqlScripts\SaveProductDateInfo.sql">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SaveProductDateInfo.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
 
 </Project>
