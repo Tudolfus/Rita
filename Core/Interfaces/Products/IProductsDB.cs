@@ -8,6 +8,6 @@ namespace Core.Interfaces.Products
     {
         Task SaveProducts(List<Product> products);
 
-        Task<IEnumerable<ProductDB>> GetProducts(string productName);
+        Task<IEnumerable<ProductDB>> GetProducts(string search, short count);
     }
 }

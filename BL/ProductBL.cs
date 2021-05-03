@@ -19,9 +19,9 @@ namespace BL
             await _productsDB.SaveProducts(products);
         }
 
-        public async Task<IEnumerable<ProductDB>> GetProducts(string productName)
+        public async Task<IEnumerable<ProductDB>> GetProducts(string search, short count)
         {
-            return await _productsDB.GetProducts(productName);
+            return await _productsDB.GetProducts(search, count);
         }
     }
 }

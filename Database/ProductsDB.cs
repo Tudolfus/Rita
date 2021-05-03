@@ -28,17 +28,17 @@ namespace Database
 
             foreach (var i in products)
             {
-                await connection.ExecuteAsync("dbo.SaveProductDateInfo",
+                await connection.ExecuteAsync("[dbo].[SaveProductDateInfo]",
                     new { productName = i.Name, storeId = 1, date = dateTime, price = i.Price}, commandType: CommandType.StoredProcedure);
             }
             
         }
 
-        public async Task<IEnumerable<ProductDB>> GetProducts(string productName)
+        public async Task<IEnumerable<ProductDB>> GetProducts(string search, short count)
         {
             using IDbConnection connection = new SqlConnection(ConnectionStrings.Value.Dev);
 
-            return await connection.QueryAsync<ProductDB>("[dbo].[GetProduct]", new { productName }, commandType: CommandType.StoredProcedure);
+            return await connection.QueryAsync<ProductDB>("[dbo].[GetProduct]", new { search, count }, commandType: CommandType.StoredProcedure);
         }
     }
 }
