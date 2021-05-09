@@ -20,7 +20,7 @@ namespace Ira.Controllers
         [Route("get-products")]
         public async Task<ActionResult> GetProducts(string search, short count = 10)
         {
-            IEnumerable<ProductDB> result = await _productBL.GetProducts(search, count);
+            IEnumerable<SelectProductVM> result = await _productBL.GetProducts(search, count);
 
             return Ok(result);
         }

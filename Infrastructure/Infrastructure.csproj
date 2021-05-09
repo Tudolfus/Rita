@@ -5,16 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DB\Migrations\SqlScripts\GetProducts.sql" />
     <None Remove="DB\Migrations\SqlScripts\SaveProductDateInfo.sql" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="DB\Migrations\SqlScripts\GetProducts.sql" />
     <EmbeddedResource Include="DB\Migrations\SqlScripts\SaveProductDateInfo.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Dapper" Version="2.0.90" />
     <PackageReference Include="FluentMigrator" Version="3.2.15" />
     <PackageReference Include="FluentMigrator.Runner" Version="3.2.15" />

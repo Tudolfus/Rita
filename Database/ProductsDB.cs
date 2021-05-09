@@ -38,7 +38,7 @@ namespace Database
         {
             using IDbConnection connection = new SqlConnection(ConnectionStrings.Value.Dev);
 
-            return await connection.QueryAsync<ProductDB>("[dbo].[GetProduct]", new { search, count }, commandType: CommandType.StoredProcedure);
+            return await connection.QueryAsync<ProductDB>("[dbo].[GetProducts]", new { search, count }, commandType: CommandType.StoredProcedure);
         }
     }
 }

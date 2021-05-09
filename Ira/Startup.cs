@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Infrastructure.DB;
 using Infrastructure.DI;
+using Infrastructure.Mapping;
 
 namespace Ira
 {
@@ -28,6 +29,8 @@ namespace Ira
             services.LaunchAutoMigration();
 
             services.AddDI(Configuration);
+
+            services.AddMapping();
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {

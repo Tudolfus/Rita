@@ -15,6 +15,7 @@ namespace Infrastructure.DB
             runner.MigrateUp(202105012221);
             runner.MigrateUp(202105012223);
             runner.MigrateUp(202105020028);
+            runner.MigrateUp(202105032114);
 
             return app;
         }
