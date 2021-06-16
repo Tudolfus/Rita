@@ -22,7 +22,7 @@ namespace Ira.Controllers
         {
             IEnumerable<SelectProductVM> result = await _productBL.GetProducts(search, count);
 
-            return Ok(result);
+            return Ok(result);  
         }
     }
 }
